@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  position: relative;
+}
+button {
+  cursor: pointer;
+}
