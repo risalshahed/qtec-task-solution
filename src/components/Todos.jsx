@@ -18,10 +18,10 @@ export default function TodoForm() {
   const completedTasks = state.filter(item => item.completed).length;
   const totalTasks = state.length;
 
-  console.log(completedTasks);
+  // console.log(completedTasks);
 
   return (
-    <div className="mt-20">
+    <section className="mt-20">
       <form
         onSubmit={handleSubmit}
         className="flex gap-x-2 sm:gap-x-4 gap-y-3 justify-center items-center px-4 py-4 rounded-md"
@@ -43,14 +43,22 @@ export default function TodoForm() {
       {
         totalTasks
         ?
-        (
-          <div className="mt-5 text-center">
-            {completedTasks} of {totalTasks} {totalTasks === 1 ? 'task is' : 'tasks are'} completed
-          </div>
-        )
+          completedTasks !== 0
+          ?
+          (
+            <div className="mt-5 text-center">
+              {completedTasks} of {totalTasks} {totalTasks === 1 ? 'task is' : 'tasks are'} completed
+            </div>
+          )
+          :
+          (
+            <div className="mt-5 text-center">
+              Nothing completed
+            </div>
+          )
         :
         null
       }
-    </div>
+    </section>
   )
 }

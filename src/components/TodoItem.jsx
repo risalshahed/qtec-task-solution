@@ -6,23 +6,39 @@ export default function TodoItem({ state, dispatch }) {
   // console.log(state);
   const items = (
     state.map(item =>
-      <div key={item.id} className="w-full flex items-center gap-x-8">
-        <input
-          type="checkbox"
-          className="cursor-pointer"
-          checked={item.completed ? true : false}
-          onChange={() => dispatch(toggleTodo(item.id))}
-        />
-        <ul>
-          <li className={`${item.completed && 'line-through'}`}>{item.name}</li>
-        </ul>
-        <button
-          onClick={() => dispatch(deleteTodo(item.id))}
-          className="btn bg-red-600 text-white px-1.5 py-0.25 rounded-sm"
-        >
-          x
-        </button>
-      </div>
+      <>
+        <div key={item.id} className="w-full flex justify-between items-center gap-x-8 py-3 hover:bg-gray-100">
+          <div className="flex gap-x-4">
+            <input
+              type="checkbox"
+              className="cursor-pointer"
+              checked={item.completed ? true : false}
+              onChange={() => dispatch(toggleTodo(item.id))}
+            />
+            <ul>
+              <li className={`${item.completed && 'line-through'} capitalize`}>{item.name}</li>
+            </ul>
+          </div>
+
+          <div className="flex items-center gap-x-3">
+            <div className="h-4 w-4 rounded-full border-2 ml-auto cursor-pointer border-green-500 hover:bg-green-500 bg-green-500"
+            ></div>
+
+            <div className="h-4 w-4 rounded-full border-2 ml-auto cursor-pointer border-yellow-500 hover:bg-yellow-500"
+            ></div>
+
+            <div className="h-4 w-4 rounded-full border-2 ml-auto cursor-pointer border-red-500 hover:bg-red-500"
+            ></div>
+            <button
+              onClick={() => dispatch(deleteTodo(item.id))}
+              className="btn bg-red-600 text-white px-1.5 py-0.25 rounded-sm"
+            >
+              X
+            </button>
+          </div>
+        </div>
+        <hr />
+      </>
     )
 
   )
