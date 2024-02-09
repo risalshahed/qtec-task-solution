@@ -1,12 +1,14 @@
-import { useReducer } from "react"
-import { todoReducer } from "../utils/reducers/todos/todoReducer"
-import { initialTodoState } from "../utils/initialState/todos/initialTodoState"
+import { useContext } from "react"
 import { useState } from "react";
 import { addTodo } from "../utils/actions/todos/actions";
 import TodoItem from "./TodoItem";
+import { TodoContext } from "../App";
 
 export default function TodoForm() {
-  const [state, dispatch] = useReducer(todoReducer, initialTodoState);
+  // const [state, dispatch] = useReducer(todoReducer, initialTodoState);
+  const todoContext = useContext(TodoContext);
+  const { state, dispatch } = todoContext;
+
   const [todo, setTodo] = useState('');
 
   const handleSubmit = e => {

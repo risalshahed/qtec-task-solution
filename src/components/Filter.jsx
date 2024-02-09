@@ -1,4 +1,10 @@
+import { useReducer } from "react"
+import { filterReducer } from "../utils/reducers/filters/filterReducer"
+import { initialFilterState } from "../utils/initialState/filters/initialFilterState"
+
 export default function Filter() {
+  const [state, dispatch] = useReducer(filterReducer, initialFilterState);
+
   return (
     <section className="w-5/6 sm:w-3/4 md:w-1/2 flex mx-auto justify-between items-center pt-8">
       <div className="flex gap-x-4">
