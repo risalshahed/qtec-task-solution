@@ -1,8 +1,6 @@
-import { useState } from "react"
 import { deleteTodo, toggleTodo } from "../utils/actions/todos/actions"
 
 export default function TodoItem({ state, dispatch }) {
-
   // console.log(state);
   const items = (
     state.map(item =>

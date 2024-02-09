@@ -27,7 +27,14 @@ export const filterReducer = (state, action) => {
       
         default:
           return state;
-      } 
+      }
+
+    case FILTER_ACTIONS.STATUS_CHANGED:
+      return {
+        ...state,
+        status: action.payload
+      }
+
     default:
       return state;
   }
