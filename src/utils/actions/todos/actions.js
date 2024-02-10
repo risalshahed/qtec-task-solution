@@ -1,7 +1,8 @@
 export const TODO_ACTIONS = {
   ADD_TODO: 'add-todo',
   TOGGLE_TODO: 'toggle-todo',
-  DELETE_TODO: 'delete-todo'
+  DELETE_TODO: 'delete-todo',
+  COLOR_SELECTED: 'color-selected'
 }
 
 export const addTodo = todoItem => {
@@ -15,6 +16,16 @@ export const toggleTodo = todoId => {
   return {
     type: TODO_ACTIONS.TOGGLE_TODO,
     payload: todoId
+  }
+}
+
+export const colorSelected = (todoId, color) => {
+  return {
+    type: TODO_ACTIONS.COLOR_SELECTED,
+    payload: {
+      todoId,
+      color
+    }
   }
 }
 

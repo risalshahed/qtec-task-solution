@@ -2,12 +2,15 @@ import { useContext } from "react"
 import { useState } from "react";
 import { addTodo } from "../utils/actions/todos/actions";
 import TodoItem from "./TodoItem";
-import { TodoContext } from "../App";
+import { FilterContext, TodoContext } from "../App";
 
 export default function TodoForm() {
   // const [state, dispatch] = useReducer(todoReducer, initialTodoState);
   const todoContext = useContext(TodoContext);
   const { state, dispatch } = todoContext;
+
+  const filterContext = useContext(FilterContext);
+  const {status, colors} = filterContext.state;
 
   const [todo, setTodo] = useState('');
 
@@ -17,7 +20,37 @@ export default function TodoForm() {
     setTodo('');
   }
 
-  const completedTasks = state.filter(item => item.completed).length;
+  // filter by status
+  const filterByStatus = todo => {
+    switch (status) {
+      case 'Completed':
+        return todo.completed;
+      case 'Incomplete':
+        return !todo.completed; 
+      default:
+        return true;
+    }
+  }
+
+  const filterByColors = todo => {
+    if(colors.length > 0) {
+      return colors.includes(todo?.color);
+    } else {
+      return true;
+    }
+  }
+
+  // filter & map over "todos"
+  const todos = (
+    state
+      .filter(filterByStatus)
+      .filter(filterByColors)
+      .map(todo =>
+        <TodoItem key={todo.id} todo={todo} todoDispatch={dispatch} />
+    )
+  )
+
+  const completedTasks = state.filter(todo => todo.completed).length;
   const totalTasks = state.length;
 
   // console.log(completedTasks);
@@ -40,8 +73,14 @@ export default function TodoForm() {
         </button>
       </form>
 
-      <TodoItem state={state} dispatch={dispatch} />
+      <div
+        className="w-1/2 block mx-auto mt-2 text-gray-700 max-h-72 overflow-y-auto"
+      >
+        {todos}
+      </div>
 
+
+      {/* task counter */}
       {
         totalTasks
         ?

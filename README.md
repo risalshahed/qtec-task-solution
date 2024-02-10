@@ -1,8 +1,19 @@
-# React + Vite
+# Qtec's Todo Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+- Todos
+  - Actions
+    - ADD_TODO
+    - TOGGLE_TODO
+    - DELETE_TODO
+  - Todo Reducer
+  - Todos Component
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Filters
+  - Actions
+    - COLOR_CHANGED
+    - STATUS_CHANGED
+  - Filter Reducer
+  - Filter Component
+
+- Responsiveness

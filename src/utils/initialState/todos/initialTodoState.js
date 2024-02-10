@@ -7,11 +7,13 @@ export const initialTodoState = [
   {
     id: Date.now() + 2,
     name: 'CSS',
-    completed: true
+    completed: true,
+    color: 'yellow'
   },
   {
     id: Date.now() + 3,
     name: 'JavaScript',
-    completed: false
+    completed: false,
+    color: 'red'
   }
 ]

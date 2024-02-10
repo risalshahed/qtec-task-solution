@@ -1,24 +1,22 @@
 import { useContext } from "react"
-import { FilterContext, TodoContext } from "../App"
+import { FilterContext } from "../App"
 import { colorChanged, statusChanged } from "../utils/actions/filters/actions";
 
 export default function Filter() {
-  const todoContext = useContext(TodoContext);
+  // const todoContext = useContext(TodoContext);
   const filterContext = useContext(FilterContext);
 
+  // const { state, dispatch } = filterContext;
+
   // states
-  const todos = todoContext.state;
+  // const todos = todoContext.state;
   const filters = filterContext.state;
   // dispatches
-  const todoDispatch = todoContext.dispatch;
+  // const todoDispatch = todoContext.dispatch;
   const filterDispatch = filterContext.dispatch;
 
   // console.log('todos', todos);
   // console.log('filters', filters);
-
-  // incomplete todo gulo k return krbo r tar length ber krbo
-  // const remainingTodos = todos.filter(todo => !todo.completed).length;
-  // console.log('remaining', remainingTodos);
 
   // destructure filters
   const {colors, status} = filters;

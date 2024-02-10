@@ -13,17 +13,33 @@ export const todoReducer = (state, action) => {
       ]
 
     case TODO_ACTIONS.TOGGLE_TODO:
-      return state.map(item => {
-        if(item.id === action.payload) {
+      return state.map(todo => {
+        if(todo.id === action.payload) {
           return {
-            ...item,
-            completed: !item.completed
+            ...todo,
+            completed: !todo.completed
           }
-        } return item;
+        } return todo;
       });
 
+    case TODO_ACTIONS.COLOR_SELECTED:
+      // DESTRUCTURING
+      const {todoId, color} = action.payload;
+
+      return state.map(todo => {
+        // console.log('todoReducer-Color_Selected', todo);
+        if(todo.id !== todoId) {
+          return todo;
+        } else {
+          return {
+            ...todo,
+            color
+          }
+        }
+      })
+
     case TODO_ACTIONS.DELETE_TODO:
-      return state.filter(item => item.id !== action.payload)
+      return state.filter(todo => todo.id !== action.payload)
   
     default:
       return state;
