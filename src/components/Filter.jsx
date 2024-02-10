@@ -3,35 +3,28 @@ import { FilterContext } from "../App"
 import { colorChanged, statusChanged } from "../utils/actions/filters/actions";
 
 export default function Filter() {
-  // const todoContext = useContext(TodoContext);
   const filterContext = useContext(FilterContext);
 
-  // const { state, dispatch } = filterContext;
 
-  // states
-  // const todos = todoContext.state;
+  // state
   const filters = filterContext.state;
-  // dispatches
-  // const todoDispatch = todoContext.dispatch;
+  // dispatch
   const filterDispatch = filterContext.dispatch;
 
-  // console.log('todos', todos);
   // console.log('filters', filters);
 
   // destructure filters
   const {colors, status} = filters;
-  console.log(colors);  // will return empty array according to initialState
 
   const handleStatusChange = status => {
     filterDispatch(statusChanged(status));
   }
 
-  // color 'add' OR 'remove' krbo; 'add' thakle 'remove' & vice versa
+  // 'add' OR 'remove' color (toggle)
   const handleColorChange = color => {
-    // "filterReducer.js" a, changeType er case ('added', 'removed') dekhe check krte hbe, color ase ki na, thakle 'add' krbo else 'remove' krbo
+    // if 'color' is present, "remove" it, otherwise add it
     if (colors.includes(color)) {
-      filterDispatch(colorChanged(color, 'removed'));
-      
+      filterDispatch(colorChanged(color, 'removed'));      
     } else {
       filterDispatch(colorChanged(color, 'added'));
     }
@@ -40,6 +33,7 @@ export default function Filter() {
   return (
     <section className="flex flex-col sm:flex-row mx-auto gap-y-3 justify-between items-center pt-8">
       <div className="flex gap-x-2 sm:gap-x-4">
+        {/* toggle with 'statuses' */}
         <button
           onClick={() => handleStatusChange('All')}
           className={`text-white px-3 sm:px-4 py-2 rounded-md ${status === 'All' ? 'font-bold bg-blue-700' : 'bg-blue-600'}`}
@@ -59,6 +53,7 @@ export default function Filter() {
         </button>
       </div>
 
+      {/* toggle with 'colors' according to "priority" */}
       <div>
         <div className="flex items-center gap-x-2">
           <div

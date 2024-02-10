@@ -4,7 +4,7 @@ import { colorSelected, deleteTodo, editTodo, toggleTodo } from "../utils/action
 export default function TodoItem({ todo, todoDispatch }) {
   const { id, name, completed, color } = todo;
 
-  console.log('name', name);
+  // console.log('name', name);
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedName, setEditedName] = useState(name);
@@ -26,13 +26,9 @@ export default function TodoItem({ todo, todoDispatch }) {
     todoDispatch(editTodo(todoId, newName));
   };
 
-  // console.log('edit', isEditing);
-
-  
-  // const { id, name, completed, color } = todo;
   return (
     <>
-      <div key={id} className="w-full flex justify-between items-center gap-x-2 md:gap-x-8 py-3 hover:bg-gray-100">
+      <div key={id} className="w-full flex flex-col-reverse sm:flex-row justify-between items-center gap-x-12 gap-y-3 py-3 hover:bg-gray-100">
         <div className="flex gap-x-4">
           <input
             type="checkbox"
@@ -40,9 +36,7 @@ export default function TodoItem({ todo, todoDispatch }) {
             checked={completed ? true : false}
             onChange={() => handleStatusChange(id)}
           />
-          {/* <ul>
-            <li className={`${completed && 'line-through'} capitalize`}>{name}</li>
-          </ul> */}
+          {/* Check if 'Editing' mode is ON */}
           {isEditing ? (
             <input
               type="text"
@@ -58,6 +52,7 @@ export default function TodoItem({ todo, todoDispatch }) {
           )}
         </div>
 
+        {/* colors for "priority" */}
         <div className="flex items-center gap-x-2 sm:gap-x-3">
           <div
             className={`h-4 w-4 rounded-full border-2 ml-auto cursor-pointer border-green-500 hover:bg-green-500 ${color === 'green' && 'bg-green-500'}`}
@@ -73,14 +68,16 @@ export default function TodoItem({ todo, todoDispatch }) {
             className={`h-4 w-4 rounded-full border-2 ml-auto cursor-pointer border-red-500 hover:bg-red-500 ${color === 'red' && 'bg-red-500'}`}
             onClick={() => handleColorChange(id, 'red')}
           ></div>
-          {/* edit */}
+
+          {/* edit handler */}
           <button
             onClick={() => toggleEdit(id, editedName)}
             className="btn bg-blue-500 text-white px-2 py-0.5 rounded-md"
           >
             {isEditing ? 'Save' : 'Edit'}
           </button>
-          {/* delete */}
+
+          {/* delete handler */}
           <button
             onClick={() => handleDelete(id)}
             className="btn bg-red-600 text-white px-1.5 py-0.25 rounded-sm"

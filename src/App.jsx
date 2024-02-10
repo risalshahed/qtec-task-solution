@@ -12,8 +12,6 @@ export const TodoContext = createContext();
 export const FilterContext = createContext();
 
 function App() {
-  /* const [todoState, todoDispatch] = useReducer(todoReducer, initialTodoState);
-  const [filterState, filterDispatch] = useReducer(filterReducer, initialFilterState); */
 
   const [todoState, todoDispatch] = useReducer(todoReducer, initialTodoState, () => {
     const localData = localStorage.getItem('todoState');

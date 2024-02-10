@@ -1,5 +1,9 @@
 # Qtec's Todo Task
 
+### Hooks & UI Libraries
+##### useReducer
+##### useState & useEffect
+##### Tailwind CSS
 
 - Todos
   - Actions
@@ -19,3 +23,5 @@
   - Filter Component
 
 - Responsiveness
+
+- Data Persisted in Local Storage

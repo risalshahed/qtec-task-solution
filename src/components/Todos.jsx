@@ -25,13 +25,14 @@ export default function TodoForm() {
     switch (status) {
       case 'Completed':
         return todo.completed;
-      case 'Incomplete':
-        return !todo.completed; 
-      default:
-        return true;
-    }
-  }
-
+        case 'Incomplete':
+          return !todo.completed; 
+          default:
+            return true;
+          }
+        }
+        
+  // filter by color
   const filterByColors = todo => {
     if(colors.length > 0) {
       return colors.includes(todo?.color);
@@ -58,7 +59,7 @@ export default function TodoForm() {
   // console.log(completedTasks);
 
   return (
-    <section className="mt-40">
+    <section className="mt-56 sm:mt-40">
       <form
         onSubmit={handleSubmit}
         className="flex gap-x-2 sm:gap-x-4 gap-y-3 justify-center items-center p-4 rounded-md"
