@@ -58,7 +58,7 @@ export default function TodoForm() {
   // console.log(completedTasks);
 
   return (
-    <section className="mt-20">
+    <section className="mt-40">
       <form
         onSubmit={handleSubmit}
         className="flex gap-x-2 sm:gap-x-4 gap-y-3 justify-center items-center p-4 rounded-md"
