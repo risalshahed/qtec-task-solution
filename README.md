@@ -1,9 +1,11 @@
 # Qtec's Todo Task
 
+## [Live Website](https://65c79749ae0ede7d460a972c--merry-bombolone-342f81.netlify.app)
+
 ### Hooks & UI Libraries
-##### useReducer
-##### useState & useEffect
-##### Tailwind CSS
+- ##### useReducer
+- ##### useState & useEffect
+- ##### Tailwind CSS
 
 - Todos
   - Actions
