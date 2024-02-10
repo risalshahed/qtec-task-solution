@@ -19,8 +19,10 @@ function App() {
     <TodoContext.Provider value={{state: todoState, dispatch: todoDispatch}}>
       <FilterContext.Provider value={{state: filterState, dispatch: filterDispatch}}>
         <Header />
-        <Todos />
-        <Filter />
+        <div className='w-5/6 sm:w-3/4 md:w-1/2 block mx-auto'>
+          <Todos />
+          <Filter />
+        </div>
       </FilterContext.Provider>
     </TodoContext.Provider>
   )

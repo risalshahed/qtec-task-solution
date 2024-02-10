@@ -12,6 +12,16 @@ export const todoReducer = (state, action) => {
         }
       ]
 
+    case TODO_ACTIONS.EDIT_TODO:
+      return state.map(todo => {
+        if(todo.id === action.payload.todoId) {
+          return {
+            ...todo,
+            name: action.payload.newName
+          };
+        } return todo;
+      });
+
     case TODO_ACTIONS.TOGGLE_TODO:
       return state.map(todo => {
         if(todo.id === action.payload) {
@@ -40,6 +50,9 @@ export const todoReducer = (state, action) => {
 
     case TODO_ACTIONS.DELETE_TODO:
       return state.filter(todo => todo.id !== action.payload)
+
+    case TODO_ACTIONS.CLEAR_COMPLETED:
+      return state.filter(todo => !todo.completed);
   
     default:
       return state;

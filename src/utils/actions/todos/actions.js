@@ -1,8 +1,10 @@
 export const TODO_ACTIONS = {
   ADD_TODO: 'add-todo',
+  EDIT_TODO: 'edit-todo',
   TOGGLE_TODO: 'toggle-todo',
   DELETE_TODO: 'delete-todo',
-  COLOR_SELECTED: 'color-selected'
+  COLOR_SELECTED: 'color-selected',
+  CLEAR_COMPLETED: 'clear-completed'
 }
 
 export const addTodo = todoItem => {
@@ -11,6 +13,16 @@ export const addTodo = todoItem => {
     payload: todoItem
   }
 }
+
+export const editTodo = (todoId, newName) => {
+  return {
+    type: TODO_ACTIONS.EDIT_TODO,
+    payload: {
+      todoId,
+      newName
+    }
+  };
+};
 
 export const toggleTodo = todoId => {
   return {
@@ -33,5 +45,11 @@ export const deleteTodo = todoId => {
   return {
     type: TODO_ACTIONS.DELETE_TODO,
     payload: todoId
+  }
+}
+
+export const clearCompleted = () => {
+  return {
+    type: TODO_ACTIONS.CLEAR_COMPLETED
   }
 }

@@ -38,22 +38,22 @@ export default function Filter() {
   }
 
   return (
-    <section className="w-5/6 sm:w-3/4 md:w-1/2 flex mx-auto justify-between items-center pt-8">
-      <div className="flex gap-x-4">
+    <section className="flex flex-col sm:flex-row mx-auto gap-y-3 justify-between items-center pt-8">
+      <div className="flex gap-x-2 sm:gap-x-4">
         <button
           onClick={() => handleStatusChange('All')}
-          className={`bg-blue-700 text-white px-4 py-2 rounded-md ${status === 'All' && 'font-bold'}`}
+          className={`text-white px-3 sm:px-4 py-2 rounded-md ${status === 'All' ? 'font-bold bg-blue-700' : 'bg-blue-600'}`}
         >
           All
         </button>
         <button
           onClick={() => handleStatusChange('Incomplete')}
-          className={`bg-blue-700 text-white px-4 py-2 rounded-md ${status === 'Incomplete' && 'font-bold'}`}
+          className={`text-white px-3 sm:px-4 py-2 rounded-md ${status === 'Incomplete' ? 'font-bold bg-blue-700' : 'bg-blue-600'}`}
         >
           Incomplete</button>
         <button
           onClick={() => handleStatusChange('Completed')}
-          className={`bg-blue-700 text-white px-4 py-2 rounded-md ${status === 'Completed' && 'font-bold'}`}
+          className={`text-white px-3 sm:px-4 py-2 rounded-md ${status === 'Completed' ? 'font-bold bg-blue-700' : 'bg-blue-600'}`}
         >
           Completed
         </button>

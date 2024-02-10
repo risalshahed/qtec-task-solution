@@ -4,10 +4,12 @@
 - Todos
   - Actions
     - ADD_TODO
+    - EDIT_TODO
     - TOGGLE_TODO
     - DELETE_TODO
+    - CLEAR_COMPLETED
   - Todo Reducer
-  - Todos Component
+  - Todo Component
 
 - Filters
   - Actions
